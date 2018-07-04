@@ -1,0 +1,19 @@
+<h3>Leave Histroy Details</h3>
+
+<div class="container" ng-controller="LeaveApplyController">
+	<div class="row" >
+		
+	<div class="col-sm-3">
+	<button class="btn btn-info" ng-click="Search">Search</button></div>
+	</div>
+	
+<div class="row">
+<!--<div class="grid" ui-grid="LeaveHistroyoptions" ui-grid-edit ui-grid-pagination ui-grid-selection>-->
+	 <kendo-grid options="mainGridOptions">
+		  <div kendo-grid k-options="detailGridOptions(dataItem)"></div>
+		 
+	</kendo-grid>
+</div> 	
+	
+</div>
+

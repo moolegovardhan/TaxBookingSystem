@@ -1,0 +1,155 @@
+<style>   
+    .abc-heading .abc-title:after{
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+   content: "\e082";    
+        padding-left: 710px;
+        
+}
+    .abc-heading.collapsed .abc-title:after  {
+  
+   content: "\e081";
+}
+.sort-icon {
+    font-size: 9px;
+    margin-left: 5px;
+}
+th {
+	cursor:pointer;
+}
+    td{
+        width: 30%;
+        
+    }
+</style>
+<section id="widget-grid" class="">
+<div class="row" ng-controller="EmpAddController">
+    <div gridster>
+            
+        <article gridster-item class="col-sm-12 col-md-12 col-lg-10" data-sizex="5" >
+            
+            
+			<div class="jarviswidget" id="wid-id-4 abc abc-default" data-widget-editbutton="false" data-widget-custombutton="false" >
+				
+				<header class="abc-heading"  data-toggle="collapse" data-target="#collapseList2">
+					<span class="widget-icon "> <i class="fa fa-edit"></i> </span>
+					<h2 class="abc-title">Salary </h2>				
+					</header>
+                <div>
+					
+					<div class="widget-body no-padding collapse in" id="collapseList2" > 
+                        <h2 align="center">Appqube Technologies</h2>
+                      <p align="center" style="margin-top:-15px;"> <small><i >3<sup>rd</sup>Floor</i>
+                          <i>Opp. Das Anjaney Temple, Currency Nagar,</i><br><i>Ramavarapadu,Vijayawada</i></small></p>
+                        <p align="center"><b>Payslip for Feb 2016</b></p>
+                        
+                     <div class="col-sm-12">
+                    <table class="table table-striped"  >
+                                 <tr><div class="row">
+                                     <div class="col-sm-2">
+                                         <span style="padding-left:20px;"><b>Employee ID</b></span></div>
+                                     <div class="col-sm-4"><select class="form-control" ng-options="item.empid as item.empid for item in empitemlist" ng-model="item.empid" width="100px;">
+                                         <option value="">--Select Employee ID--</option>
+                                         </select></div></div>
+                                </tr>
+                        <tr ng-repeat="list in empitemlist" ng-show="item.empid==list.empid">
+                            <td><label><b>Employee ID :</b></label><span style="float:right">{{list.empid}}</span></td>
+                            <td><label><b>Employee Name :</b></label><span style="float:right">{{list.empname}}</span></td>
+                            </tr>
+                        <tr ng-repeat="list in empitemlist" ng-show="item.empid==list.empid">
+                            <td><label><b>Department Name:</b></label><span style="float:right;">{{list.deptname}}</span></td>
+                            <td><label><b>Designation Name:</b></label><span style="float:right;">{{list.designationname}}</span></td><br></tr>
+                        <tr ng-repeat="list in empitemlist" ng-show="item.empid==list.empid"> <td><label><b>Date of Join :</b></label><span style="float:right;">{{list.dateofjoin}}</span></td>
+                            <td><label><b>Bank Account Number :</b></label><span style="float:right;">IAF356546757867</span></td>
+                            </tr>
+                        <tr ng-repeat="list in empitemlist" ng-show="item.empid==list.empid"> <td><label><b>Earned Leave :</b></label><span style="float:right;">0.5</span></td>
+                            <td><label><b>Casual Leave :</b></label><span style="float:right;">1</span></td>
+                            </tr> 
+                        <tr ng-repeat="list in empitemlist" ng-show="item.empid==list.empid"> 
+                            
+                            <td>
+                            
+                           <label><b>Earning</b></label>
+                            <label style="float:right;"><b>Amount</b></label>
+                            
+                            
+                            </td>
+                            <td>
+                            
+                            <label><b>Deduction</b></label>
+                            <label style="float:right;"><b>Amount</b></label>
+                            
+                            </td>
+                        </tr>
+                        <tr ng-repeat="list in empitemlist" ng-show="item.empid==list.empid"> 
+                            
+                            <td>
+                                <label><b>Basic Salary</b></label>
+                                <label style="float:right;">{{(list.basicpay)}}</label>
+                            </td>
+                            <td>
+                                <label><b>Insurance</b></label>
+                                <label style="float:right;">0</label>
+                            </td>
+                        </tr>
+                        <tr ng-repeat="list in empitemlist" ng-show="item.empid==list.empid"> 
+                            
+                            <td>
+                                <label><b>House Rent</b></label>
+                                <label style="float:right;">{{(list.basicpay)*(10/100)}}</label>
+                            </td>
+                            <td>
+                                <label><b>Provident Fund</b></label>
+                                <label style="float:right;">{{((list.basicpay)*(5/100))}}</label>
+                            </td>
+                        </tr>
+                         <tr ng-repeat="list in empitemlist" ng-show="item.empid==list.empid"> 
+                             
+                            <td>
+                                <label><b>Dear Allowance</b></label>
+                                <label style="float:right;">{{(list.basicpay)*(8/100)}}</label>
+                            </td>
+                            <td>
+                                <label><b>Professional Tax</b></label>
+                                <label style="float:right;">{{(list.basicpay)*(14.5/100)}}</label>
+                            </td>
+                        </tr>
+                         <tr ng-repeat="list in empitemlist" ng-show="item.empid==list.empid"> 
+                             
+                            <td>
+                                <label><b>Conveyance</b></label>
+                                <label style="float:right;">{{(list.basicpay)*(10/100)}}</label>
+                            </td>
+                            <td>
+                               
+                            </td>
+                        </tr>
+                        <br></be>
+                        <tr ng-repeat="list in empitemlist" ng-show="item.empid==list.empid"> 
+                            <td>
+                                <label><b>Total Earnings</b></label>
+                                <label style="float:right;">{{(((list.basicpay)*1/1)+(((list.basicpay)*(10/100))+(((list.basicpay)*(8/100))+((list.basicpay)*(10/100)))))}}<!--{{(list.basicpay)+(((list.basicpay)*(10/100))+(((list.basicpay)*(8/100))+((list.basicpay)*(10/100))))}}--></label>
+                            </td>
+                            <td>
+                                <label><b>Total Deductions</b></label>
+                                <label style="float:right;">{{(list.basicpay)*(14.5/100)+((list.basicpay)*(5/100))}}</label>
+                            </td>
+                        </tr>
+                             <tfoot>
+                                <tr ng-repeat="list in empitemlist" ng-show="item.empid==list.empid"> 
+                            <td colspan="2"> 
+                                <label><b>Net Salary</b></label>
+                                <label style="float:right;">{{((((list.basicpay)*1/1)+(((list.basicpay)*(10/100))+(((list.basicpay)*(8/100))+((list.basicpay)*(10/100)))))-(list.basicpay)*(14.5/100)+((list.basicpay)*(5/100)))}}<!--{{(list.basicpay)+(((list.basicpay)*(10/100))+(((list.basicpay)*(8/100))+((list.basicpay)*(10/100))))}}--></label>
+                            </td>
+                            
+                        </tr>
+                             </tfoot>
+                             </table>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+    </div>
+    </section>

@@ -1,0 +1,33 @@
+<div class="row" ng-controller="LeaveAddController">
+<div class="col-sm-6">
+    <h2>Leave type adding to masters</h2>
+    <input type="text" ng-model="leaveitem.leavetypeid" class="form-control" placeholder="Enter leavetype id"><br>
+    <input type="text" ng-model="leaveitem.leavetype" class="form-control" placeholder="Enter Leave type"><br>
+    <input type="text" ng-model="leaveitem.leavenumber" class="form-control" placeholder="Enter Number of Leaves"><br>
+    <button ng-click="save()"class="btn btn-success" ladda="loginLoading">Save</button>
+	<div growl></div>
+</div>
+    <div class="col-sm-6 well">
+        <h2>Leaves type Information</h2>
+    <table class="table table-striped">
+    <tr>
+		<th>Leave id</th>
+		<th>Leave Name</th>
+		<th>Number of leaves</th>
+		<th>Action</th>
+	</tr>
+		<tr ng-repeat="item in Leaveitemlist">
+        
+    <td>{{item.leavetypeid}}</td>
+    <td>{{item.leavetype}}</td>
+    <td>{{item.leavenumber}}</td>
+			<td><button class="btn btn-primary" ng-click="edit($index,item)"><span class="glyphicon glyphicon-edit"></span></button><button class="btn btn-danger" ng-click="remove($index,item.id)"><span class="glyphicon glyphicon-trash"></span></button></td>
+    
+        <td>
+		</tr>
+		
+	
+    </table>
+    </div>
+
+</div>

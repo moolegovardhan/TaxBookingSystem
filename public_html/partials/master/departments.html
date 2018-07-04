@@ -1,0 +1,120 @@
+<style>   
+    .abc-heading .abc-title:after{
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+   content: "\e082";    
+        padding-left: 340px;
+}
+    .abc-heading.collapsed .abc-title:after  {
+  
+   content: "\e081";
+}
+.sort-icon {
+    font-size: 9px;
+    margin-left: 5px;
+}
+th {
+	cursor:pointer;
+}
+</style>
+<section id="widget-grid" class="">
+<div class="row">
+    <div gridster>
+            
+		<article gridster-item class="col-sm-12 col-md-12 col-lg-6" data-sizex="3">
+            
+            
+			<div class="jarviswidget" id="wid-id-4 abc abc-default" data-widget-editbutton="false" data-widget-custombutton="false" >
+				
+				<header class="abc-heading"  data-toggle="collapse" data-target="#collapseList2">
+					<span class="widget-icon "> <i class="fa fa-edit"></i> </span>
+					<h2 class="abc-title">Department </h2>				
+					</header>
+                <div>
+					
+					<div class="widget-body no-padding collapse in" id="collapseList2" > 
+						
+						<form id="smart-form-register" class="smart-form">
+							
+
+							<fieldset>
+								<section>
+									<label class="input"> <i class="icon-append fa fa-user"></i>
+										<input type="text" name="DepartmentName" placeholder="Department Name">
+										<b class="tooltip tooltip-bottom-right">Needed</b> </label>
+								</section>
+								<section>
+									<label class="input"> <i class="icon-append fa fa-envelope-o"></i>
+										<input type="text" name="DepartmentID" placeholder="Department ID">
+										<b class="tooltip tooltip-bottom-right">Needed</b> </label>
+								</section>
+
+							</fieldset>
+
+
+							<footer>
+								<button type="submit" class="btn btn-primary">
+									Add Department
+								</button>
+							</footer>
+						</form>						
+						
+					</div>
+				</div>
+			</div>
+			
+                </article>
+        <article gridster-item class="col-sm-12 col-md-12 col-lg-6" data-sizex="3">            
+            
+      
+          <div class="jarviswidget" id="wid-id-4 abc abc-default" data-widget-editbutton="false" data-widget-custombutton="false">		
+              
+              <header class="abc-heading"  data-toggle="collapse" data-target="#collapseList1" style="background-color:#474544;">
+					<span class="widget-icon"> <i class="fa fa-table" style="color:White;"></i></span>
+					<h2 class="abc-title" style="color:White;">Overview </h2></header>
+            <div>
+                
+			<div class="jarviswidget-editbox widget-body no-padding collapse in" id="collapseList1" ng-controller="DepartmentController">
+			<form class="form-inline"  style="padding:15px 15px 0px;">
+					<div class="form-contrel">
+						<input type="text" ng-model="search" class="form-control" placeholder="Search">
+					</div>
+				</form><br>
+				<table class="table table-hover">
+                    
+					<thead>
+						<tr>
+							<th ng-click="sort('id')">Department ID
+								<span class="glyphicon sort-icon" ng-show="sortKey=='id'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+							</th>
+							<th ng-click="sort('first_name')">Department Name
+								<span class="glyphicon sort-icon" ng-show="sortKey=='first_name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+							</th>
+                            <th>Action</th>
+                        </tr>
+					</thead>
+					<tbody>
+						<tr dir-paginate="item in departmentlist|orderBy:sortKey:reverse|filter:search|itemsPerPage:3">
+							<td>{{item.deptid}}</td>
+							<td>{{item.deptname}}</td>
+							<td><button class="btn btn-primary" ng-click="edit($index,item)"><span class="glyphicon glyphicon-edit"></span></button><button class="btn btn-danger" ng-click="remove($index,item.id)"><span class="glyphicon glyphicon-trash"></span></button></td>
+						</tr>
+					</tbody>
+				</table> 
+                
+				<dir-pagination-controls
+					max-size="5"
+					direction-links="true"
+					boundary-links="true"
+                    style="float:right;padding-right:10px;">
+				</dir-pagination-controls>
+			
+				</div>
+                
+			</div>
+       </div>  
+        </article>
+                  
+	</div>    
+    
+    </div>
+    </section>

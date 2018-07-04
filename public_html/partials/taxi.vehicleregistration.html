@@ -1,0 +1,107 @@
+<div id="main" role="main">        
+<div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="row">
+        	<div class="padding margin-top">
+            	<h1>Vehicle Registration</h1>               
+                </div>
+    <div class="col-lg-12 col-md-12 margin-top">
+            <div class="row">
+                        
+                    <div class="col-lg-4 col-md-4 col-sm-4" >
+                    <div class="form-group">
+                        <label>Vehicle Type</label>
+                        <select class="form-control" name="vehicletype" id="vehicletype" ng-model="vehicletype">
+                <option value="">Select Vehicle Type</option>
+                <option ng-repeat="vehicletype in vehicletypes" value='{{vehicletype.id+","+vehicletype.type}}'>
+                                                        {{vehicletype.type}}
+                </option>
+                </select>
+<!--                        <select class="form-control" name="vehicletype" id="vehicletype" ng-model="vehicletype">
+						 <option value="SUV">SUV</option>
+						 <option value="Crossover">Crossover</option>
+						 <option value="MPV">MPV</option>
+						 <option value="Sedan">Sedan</option>
+						 <option value="Coupe">Coupe</option>
+						 <option value="Convertible">Convertible</option>
+						</select>-->
+                    </div>
+                    </div>                    
+                    <div class="col-lg-4 col-md-4 col-sm-4" >
+                    <div class="form-group">
+			<label>Chassis  Number</label>
+                        <input type="text" class="form-control required" ng-model="chassisnumber">
+                    </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4" >
+                    <div class="form-group">
+			<label>Owner Name</label>
+                        <input type="text" class="form-control required" ng-model="oname">
+                    </div>
+                    </div>
+            
+            </div>
+                                    
+            <div class="row">
+                        
+                    <div class="col-lg-4 col-md-4 col-sm-4" >
+                    <div class="form-group">
+			<label>Owner Mobile</label>
+                        <input type="text" class="form-control required" ng-model="omobile">
+                    </div>
+                    </div>                    
+                    <div class="col-lg-4 col-md-4 col-sm-4" >
+                    <div class="form-group">
+			<label>Vehicle Number</label>
+                        <input type="text" class="form-control required" ng-model="vehicleno">
+                    </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4" >
+                    <div class="form-group">
+			<label>Date Of Purchase</label>
+                        <input type="text" class="form-control required" ng-model="dopurchase">
+                    </div>
+                    </div>
+            
+            </div>        
+
+            <div class="row">
+                        
+                    <div class="col-lg-4 col-md-4 col-sm-4" >
+                    <div class="form-group">
+			<label>Pollution Expiry Date</label>                       
+                        <input type="text"  class="form-control required" ng-model="pollutionexpdate">
+                    </div>
+                    </div>                    
+                    <div class="col-lg-4 col-md-4 col-sm-4" >
+                    <div class="form-group">
+			<label>Fitness Expiry Date</label>
+                        <input type="text" class="form-control required" ng-model="fitnessexpdate">
+                    </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4" >
+                    <div class="form-group">
+			<label>Road Tax</label>
+                        <input type="text" class="form-control required" ng-model="roadtax">
+                    </div>
+                    </div>
+            
+            </div>                
+                    	
+                <button type="button" class="btn btn-success" ng-click="SubmitVehicle">Submit</button>
+    </div>
+                
+        </div>
+        </div>
+</div>
+
+<!--<script type="text/javascript">
+ 
+
+    $(document).ready(function() {
+
+    $("#datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
+    });
+    $(document).ready(function() {
+    $("#datepickers").datepicker({ dateFormat: 'yy-mm-dd' });
+
+    });</script>-->

@@ -1,0 +1,114 @@
+<div id="main" role="main">        
+<div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="row">
+        	<div class="padding margin-top">
+            	<h1>Driver Mapping</h1>               
+                </div>
+    <div class="col-lg-12 col-md-12 margin-top">
+            <div class="row">
+                        
+                    <div class="col-lg-4 col-md-4 col-sm-4" >
+                    <div class="form-group">
+                        <label>Driver Name</label>
+                        <select class="form-control" name="driver" id="driver" ng-model="driver">
+                <option value="">Select Driver</option>
+                <option ng-repeat="driver in drivers" value='{{driver.id+","+driver.name}}'>
+                                                        {{driver.name}}
+                </option>
+                </select>
+<!--                        <select class="form-control" name="driver" id="driver" ng-model="driver">
+						 <option value="1">Arjun</option>
+						 <option value="2">Siva</option>
+						 <option value="3">Manoj</option>
+						</select>-->
+                    </div>
+                    </div>                    
+                    <div class="col-lg-4 col-md-4 col-sm-4" >
+                    <div class="form-group">
+                        <label>vehicle Type</label>
+                        <select class="form-control" name="vehicletype" id="vehicletype" ng-model="vehicletype">
+                <option value="">Select Vehicle Type</option>
+                <option ng-repeat="vehicletype in vehicletypes" value='{{vehicletype.id+","+vehicletype.type}}'>
+                                                        {{vehicletype.type}}
+                </option>
+                </select>
+<!--                        <select class="form-control" name="vehicletype" id="vehicletype" ng-model="vehicletype">
+						 <option value="SUV">SUV</option>
+						 <option value="Crossover">Crossover</option>
+						 <option value="MPV">MPV</option>
+						 <option value="Sedan">Sedan</option>
+						 <option value="Coupe">Coupe</option>
+						 <option value="Convertible">Convertible</option>
+						</select>-->
+                    </div>
+                    </div> 
+                    <div class="col-lg-4 col-md-4 col-sm-4" >
+                    <div class="form-group">
+			<label>Vehicle Number</label>
+                        <input type="text" class="form-control required" ng-model="vehiclenumber">
+                    </div>
+                    </div>
+            
+            </div>
+  <div class="row">
+                        
+                    <div class="col-lg-4 col-md-4 col-sm-4" >
+                    <div class="form-group">
+                <button type="button" class="btn btn-success" ng-click="mapDriver()">Add</button> 
+                </div>
+                    </div> 
+                    
+            </div>
+                <div class="col-lg-12 col-md-12 margin-top">
+                    <div class="row">
+                        <table class="table table-striped table-bordered">
+                                        <tr>
+                                            <th>Driver Name</th>
+                                            <th>Vehicle Type</th>
+                                            <th>Vehicle Number</th>
+                                            <th>Action</th>
+                                        </tr>
+                                       
+                                            <tr ng-repeat="driver in Alldrivers">
+                                            <td>{{driver.name}}</td>
+                                            <td>{{driver.type}}</td>
+                                            <td>{{driver.vehiclenumber}}</td>
+                                            <td>
+                                                <button class="btn btn-success" type="submit" value="submit" ng-click="canceldriver(driver)"> <span class="glyphicon glyphicon-trash"></span> </button> &nbsp;&nbsp;
+                                            </td>
+                                        </tr>
+                                    </table>
+                                   
+                        </div> 
+                </div>
+        <div class="row">
+                        
+                    <div class="col-lg-4 col-md-4 col-sm-4" >
+                    <div class="form-group">
+                <button type="button" class="btn btn-success" ng-click="submitDriverToCar()">Submit</button>
+        </div>
+                
+        </div>
+        </div>       
+    </div>
+                
+        </div>
+        </div>
+</div>
+
+<modal-dialog show='loadingImage' dialog-title='Processing.......' height='200px' width='35%'>
+        <p>
+            <center> <img src="img/slot_loader.gif" height="110px" /></center>
+        </p>
+        <div class="form_button">
+        </div>
+    </modal-dialog>
+    <modal visible="showModal2">
+    <h2>
+        <div class="modal-dialog">
+        <center>
+            <b> {{status}} </b>
+        </center>
+    </div>
+    </h2>
+</modal>

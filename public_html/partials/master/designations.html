@@ -1,0 +1,39 @@
+<div class="container" ng-controller="DesignationController">
+
+<div class="row">
+<div class="col-sm-5">
+    <h2>Designation Information adding to masters</h2>
+   <form>
+       
+       <label for=myselect>Select Department</label>
+       <select class="form-control" name="myselect" id="myselect" ng-options="designation.deptname as designation.deptname for designation in departmentlist track by designation.deptid" ng-model="designation.deptname">
+       </select><br>      
+       
+       <input class="form-control" ng-model="designation.deptname" type="text" placeholder="Department Name"><br>
+       <input class="form-control" ng-model="designation.designationid" type="text" placeholder="Enter Designation ID"><br>
+       <input class="form-control" ng-model="designation.designationname" type="text" placeholder="Enter Designation Name"><br>
+      
+       <button class="btn btn-primary" ng-click="save()">Save</button>
+       <div growl></div>
+    </form>
+</div>
+    <div class="col-sm-6 well">
+        <h3>{{"View"}}</h3>
+        <form>
+			<input class="well" ng-model="search.deptname" placeholder="Search Department"><br>
+            <table class="table table-bordered">
+                <tr ><th>Designation ID</th><th>Designation Name</th><th>Department Name</th><th>Action</th></tr>
+                <tr ng-repeat="desgn in designationlist | filter:search | orderBy : designationid">
+                    <td>{{desgn.designationid}}</td>
+                    <td>{{desgn.designationname}}</td>
+                    <td>{{desgn.deptname}}</td>
+                    <td>
+                        <button class="btn btn-danger" ng-click="remove($index,desgn.id)"><span class="glyphicon glyphicon-trash"></span>
+</button><button class="btn btn-success" ng-click="edit($index,desgn)"><span class="glyphicon glyphicon-edit"></span></button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</div>

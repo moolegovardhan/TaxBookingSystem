@@ -1,0 +1,27 @@
+<h3>Shift Change for Employee</h3>
+<div ng-controller="ShiftAssignController">
+	<div class="row">
+		<div class="col-sm-3">
+<input class="form-control" type="Search" placeholder="Enter Anything to Search">
+		</div><div class="col-sm-3">
+		
+		 <select class="form-control" name="myselect" id="myselect" ng-options="shift.shiftname as shift.shiftname for shift in shiftlist track by shift.shiftid" ng-model="shift.shiftname">
+       </select>
+	
+		</div><div class="col-sm-3">
+	<button type="button" ng-click="ChangeShift()" class="btn btn-info">Change</button>
+		</div></div>
+	<br>
+	<div class="row">
+	<table class="table table-responsive">
+	<tr><th>Employee name </th><th>Department</th><th>Designation</th><th>Current Shift</th></tr>
+		<tr>
+		<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		</table>
+	
+	</div>       
+	</div>

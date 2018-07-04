@@ -1,0 +1,31 @@
+<h3>Apply Leave</h3>
+
+<div class="content" ng-controller="LeaveApplyController">
+	
+<div class="col-sm-6">
+	<form class='form-group well'>
+        <select class="form-control" name="myselect" id="myselect" ng-options="leave.leavetype as leave.leavetype for leave in Leaveitemlist  track by leave.leavetypeid" ng-model="leave.leavetype">
+       </select><br> 
+	<!--<select class="form-control" ng-options="leave.leavetype for leave in Leaveitemlist track by leave.leavetypeid" ng-model="leave.leavetype">
+       </select><br>--> 
+       <!-- <input class="form-control" ng-model="leave.leavetype" type="text" placeholder="Leave Name" readonly><br>-->
+	<input type="date" placeholder="Enter From Date" ng-model=leave.leavefrom class='form-control'><br>
+	<input type="date" placeholder="Enter To Date" ng-model="leave.leaveto" class='form-control'><br>
+         <li class="hidden">{{leave.leavenumber=getDuration(leave.leavefrom, leave.leaveto)}}</li>
+	<input type="text" placeholder="Total Leave Days" ng-model="leave.leavenumber" class="form-control"><br>
+	<button type="button" class="btn btn-success" class="form-control" ng-click="SaveLeave()">save</button>
+    <button type="button" class="btn btn-warning" class="form-control">Cancel</button>
+		
+	
+		   
+		
+   
+	</form>	
+	
+</div>{{leave.leavenumber=getDuration(leave.leavefrom, leave.leaveto)}}
+	
+	<div class="col-sm-6">
+<div class="grid" ui-grid="LeaveHistroyoptions" ui-grid-edit ui-grid-pagination ui-grid-selection>
+	
+</div> 	
+</div>

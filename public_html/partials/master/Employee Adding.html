@@ -1,0 +1,103 @@
+<div class="row" ng-controller="EmpAddController">
+	<div class="col-sm-8">
+		<form>
+		<div class="tabs well btn-group">
+	<a href="" title="" class="tab selected" rel="tab1" ng-click="selected=1" ng-class="{'active' : selected==1 }"><button type="button" class="btn btn-success">Employee Details</button></a>
+	<a href="" title="" class="tab selected" rel="tab2" ng-click="selected=2" ng-class="{'active' : selected==2 }"><button type="button" class="btn btn-success">Employee Address</button></a>
+	<a href="" title="" class="tab selected" rel="tab3" ng-click="selected=3" ng-class="{'active' : selected==3 }"><button type="button" class="btn btn-success">Previous Experience</button></a>
+	<a href="" title="" class="tab selected" rel="tab4" ng-click="selected=4" ng-class="{'active' : selected==4 }"><button type="button" class="btn btn-success">Qualifications</button></a>
+	<a href="" title="" class="tab selected" rel="tab5" ng-click="selected=5" ng-class="{'active' : selected==5 }"><button type="button" class="btn btn-success">Complete profile</button></a>
+	</div>
+		
+<div id="tab1" class="tabContent selected row" ng-show="selected == 1 " >
+  <h4>Employee Details</h4>
+	<input type="text" class="form-control" ng-model="empadditem.empid" placeholder="Employee id">
+  <br>
+  <input type="text" class="form-control" ng-model="empadditem.empname" placeholder="Employee Name">
+  <br>
+<select class="form-control" ng-options="empadditem.deptname as empadditem.deptname for empadditem in departmentlist track by empadditem.deptid" ng-model="empadditem.deptname">
+       </select><br>
+	<select class="form-control" ng-options="empadditem.designationname as empadditem.designationname for empadditem in designationlist" ng-model="empadditem.designationname" ng-select="empadditem.deptid:empadditem.designationid">
+       </select><br> 
+	<input type="date" ng-model="empadditem.dataeofjoin" class="form-control" placeholder="Date of join">
+  <br>
+  <br>
+	<a class="tab" rel="tab2" class="tabContent selected row" ng-click="selected=2" ng-class="{'active' : selected==2}"><button type="button" class="btn btn-primary">next</button></a>
+</div>
+   <div id="tab2" class="tabContent selected row" ng-show="selected == 2" >
+  <h4>Employee personal details</h4>
+<textarea class="form-control" ng-model="empadditem.address" placeholder="address"></textarea>
+  <br>
+  <input type="text" class="form-control" ng-model="empadditem.village" placeholder="Village">
+  <br>
+   <input type="text" class="form-control" ng-model="empadditem.district" placeholder="District">
+  <br>
+  <input type="text" class="form-control" ng-model="empadditem.state" placeholder="State">
+  <br>
+  <input type="text" class="form-control"ng-model="empadditem.pincode"  placeholder="Pincode">
+<br>
+  <input type="text" class="form-control" ng-model="empadditem.teliphone" placeholder="Teliphone Number">
+  <br>
+   <input type="text" class="form-control" ng-model="empadditem.phonenumber" placeholder="Enter Mobile Number"><br>
+  <input type="email" class="form-control" ng-model="empadditem.email" placeholder="Enter Email"><br>
+	 <a class="tab" rel="tab1" class="tabContent selected row" ng-click="selected=1" ng-class="{'active' : selected==1}"><button type="button" class="btn btn-primary">previous</button></a>
+	    <a class="tab" rel="tab3" class="tabContent selected row" ng-click="selected=3" ng-class="{'active' : selected==3}"><button type="button" class="btn btn-primary">next</button></a>
+</div>
+	<div id="tab3" class="row" class="tabContent selected row" ng-show="selected == 3">
+	<h4>Previous working Experience</h4><br>
+	<input type="text" class="form-control" ng-model="empadditem.previouscompany" placeholder="Previous Company"><br>
+    <input type="text" class="form-control" ng-model="empadditem.experience" placeholder="year of Experience"><br>
+	<input type="text" class="form-control" ng-model="empadditem.salary" placeholder="Salary"><br>
+		<a class="tab" rel="tab2" class="tabContent selected row" ng-click="selected=2" ng-class="{'active' : selected==2}"><button type="button" class="btn btn-primary">previous</button></a>
+		 <a class="tab" rel="tab4" class="tabContent selected row" ng-click="selected=4" ng-class="{'active' : selected==4}"><button type="button" class="btn btn-primary">next</button></a>
+</div>
+   <div id="tab4" class="tabContent selected row" ng-show="selected == 4">
+<h4>Qualification Details</h4>
+    <input type="text" class="form-control" ng-model="empadditem.highereducation" placeholder="Enter higher Qualificaion"><br>
+	<input type="text" class="form-control" ng-model="empadditem.college" placeholder="Enter College Name"><br>
+	    <a class="tab" rel="tab3" class="tabContent selected row" ng-click="selected=3" ng-class="{'active' : selected==3}"><button type="button" class="btn btn-primary">previous</button></a>
+	    <a class="tab" rel="tab5" class="tabContent selected,row" ng-click="selected=5" ng-class="{'active' : selected==5}"><button type="button" class="btn btn-primary" ng-click="save()">Save</button></a>
+</div>
+	<div id="tab5" class="tabContent selected row" ng-show="selected == 5">
+	<table class="table table-striped bordered">
+    <tr>
+		<th>id</th>
+		<th>Name</th>
+		<th>Department</th>
+		<th>Designation</th>
+		<th>Date of join</th>
+		<th>Address</th>
+		<th>Phone Nunber</th>
+		<th>Email</th>
+		<th>Previous Company</th>
+		<th>year of Experience</th>
+		<th>Prevoius salary</th>
+		<th>Higher Education</th>
+		<th>College</th>
+		<th>Action</th>
+	</tr>
+		<tr ng-repeat="item in empitemlist">
+        
+    <td>{{item.empid}}</td>
+    <td>{{item.empname}}</td>
+    <td>{{item.deptname}}</td>
+	<td>{{item.designationname}}</td>
+	<td>{{item.dateofjoin}}</td>
+	<td>{{item.address}}</td>
+	<td>{{item.phonenumber}}</td>
+	<td>{{item.email}}</td>
+	<td>{{item.previouscompany}}</td>
+	<td>{{item.experience}}</td>
+	<td>{{item.salary}}</td>
+	<td>{{item.highereducation}}</td>
+	<td>{{item.college}}</td>
+	<td>{{item.shifttype}}</td>
+		</tr>
+	 </table>
+		<a class="tab" rel="tab1" class="tabContent selected row" ng-click="selected=1" ng-class="{'active' : selected==1}"><button type="button" class="btn btn-primary" ng-click="edit($index,item)"><span class="glyphicon glyphicon-edit"></span></button></a><button class="btn btn-danger" ng-click="remove($index,item.id)"><span class="glyphicon glyphicon-trash"></span></button>
+	 <div growl></div>
+	</div>
+
+		</form>
+	</div>
+ </div>

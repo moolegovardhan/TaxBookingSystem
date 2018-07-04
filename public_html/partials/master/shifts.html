@@ -1,0 +1,33 @@
+<div class="row" ng-controller="ShiftController">
+<div class="col-sm-5">
+    <h2>Shift adding to masters</h2>
+    <input type="text" class="form-control" ng-model="shifttime.shiftid" placeholder="Enter Shift id"><br>
+    <input type="text" class="form-control" ng-model="shifttime.shiftname" placeholder="Enter Shift Name"><br>
+    
+    From<uib-timepicker ng-model="shifttime.from"></uib-timepicker><br>
+    
+    To<uib-timepicker ng-model="shifttime.to"></uib-timepicker>
+   
+    
+    <button class="btn btn-success" ng-click="save()">Save</button>
+</div>
+    <div class="col-sm-6 well">
+                <h3>{{"View"}}</h3>
+                <form>
+                    <table class="table table-bordered">
+                        <tr ><th>Shift ID</th><th>Shift Name</th><th>From</th><th>To</th><th>Action</th></tr>
+                        <tr ng-repeat="shift in shiftlist">
+                            <td>{{shift.shiftid}}</td>
+                            <td>{{shift.shiftname}}</td>
+                            <td>{{shift.from | date:'shortTime'}}</td>
+                            <td>{{shift.to | date:'shortTime'}}</td>
+                             <td><button class="btn btn-danger" ng-click="remove($index,shift.id)"><span class="glyphicon glyphicon-trash"></span></button>
+                            <button class="btn btn-success" ng-click="edit($index,shift)"><span class="glyphicon glyphicon-edit"></span></button></td>
+                        </tr>
+                    </table>
+                    
+                </form>
+            </div>
+
+
+</div>

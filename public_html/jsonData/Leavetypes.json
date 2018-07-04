@@ -1,0 +1,4 @@
+[{"leavetypeid":"LL01","leavetype":"casual leave","leavenumber":"10"},
+ {"leavetypeid":"LL02","leavetype":"paid leaves","leavenumber":"10"},
+ {"leavetypeid":"LL03","leavetype":"Ocational leaves","leavenumber":"15"},
+ {"leavetypeid":"LL04","leavetype":"unpaid leaves","leavenumber":"10"}]

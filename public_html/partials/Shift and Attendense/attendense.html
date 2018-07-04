@@ -1,0 +1,43 @@
+<h3>Attendance Module for Employee List</h3>
+	<div class="row" ng-controller="EmpAddController">
+		<!--<div class="row">
+	      <div class="col-sm-3">
+	     <input type="Search" class="form-control" placeholder="Enter Anything to Search">
+		   </div>
+		
+		<div class="col-sm-3">
+			<button type="button" class="btn btn-info">Search</button>
+		</div>
+		</div>-->
+		<br>
+		<div class="row">
+            <div class="col-sm-12">
+              <div class="col-sm-4">  <select class="form-control" ng-options="item.empid as item.empid for item in empitemlist" ng-model="item.empid">
+                    </select>
+                </div>     
+                <div class="col-sm-4"><input type="text" ng-model="date" class="form-control" placeholder="Search by dd/mm/yyyy" ></div>
+                <div class="col-sm-4"><input type="search" ng-model="search.empid" class="form-control" placeholder="Search by Employee ID" ></div>
+                <table class="table table-striped">
+		<tr><th>EMPLOYEE ID</th><th>DEPARTMENT NAME</th><th>IN</th><th>OUT</th><th>DATE</th></tr>
+		 <tr ng-repeat="list in empitemlist" ng-show="item.empid==list.empid">
+              <td class="hidden">{{list.empid}}</td>
+             <td class="hidden">{{list.deptname}}</td>
+            
+             <td class="hidden">{{list.in | date:'HH:mm:ss'}}</td>
+             <td class="hidden">{{list.out | date:'HH:mm:ss'}}</td>
+             <td><button type="button" class="btn-primary" ng-click="checkin(list)" >Check IN</button><button type="button" class="btn-primary" ng-click="checkout(list)" >checkout</button></td>  
+           </tr> 
+          
+			<tr ng-repeat="list in attendlist | filter:date | filter:search ">
+             
+             <td>{{list.empid}}</td>
+             <td>{{list.deptname}}</td>
+            
+             <td>{{list.in | date:'HH:mm:ss'}}</td>
+            <td>{{list.out|date:'HH:mm:ss'}}</td>
+             <td>{{list.date | date:'dd/MM/yyyy'}}</td>
+                
+           </tr> 
+	   </table>  </div>
+       		</div> 
+        </div>

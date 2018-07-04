@@ -1,0 +1,142 @@
+<div id="main" role="main">        
+<div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="row">
+        	<div class="padding margin-top">
+            	<h1>Agent Registration</h1>               
+                </div>
+    <div class="col-lg-12 col-md-12 margin-top">
+            <div class="row">
+                        
+                    <div class="col-lg-4 col-md-4 col-sm-4" >
+                    <div class="form-group">
+			<label>First Name</label>
+                        <input type="text" class="form-control required" ng-model="fname">
+                    </div>
+                    </div>                    
+                    <div class="col-lg-4 col-md-4 col-sm-4" >
+                    <div class="form-group">
+			<label>Middle Name</label>
+                        <input type="text" class="form-control required" ng-model="mname">
+                    </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4" >
+                    <div class="form-group">
+			<label>Last Name</label>
+                        <input type="text" class="form-control required" ng-model="lname">
+                    </div>
+                    </div>
+            
+            </div>
+                                    
+            <div class="row">
+                        
+                    <div class="col-lg-4 col-md-4 col-sm-4" >
+                    <div class="form-group">
+			<label>Mobile</label>
+                        <input type="text" class="form-control required" ng-model="mobile">
+                    </div>
+                    </div>                    
+                    <div class="col-lg-4 col-md-4 col-sm-4" >
+                    <div class="form-group">
+			<label>corporate Address</label>
+                        <input type="text" class="form-control required" ng-model="corporateaddress">
+                    </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4" >
+                    <div class="form-group">
+			<label>Mailing Address</label>
+                        <input type="text" class="form-control required" ng-model="mailingaddress">
+                    </div>
+                    </div>
+            
+            </div>
+        <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4" >
+        <div class="form-group">
+                    <label>State</label>
+                        <select id="state" name="state" ng-model="statename" ng-change="getDistrict()" class="form-control required"  required>
+                                              <option value="">Select State</option>
+                                               <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                               <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                               <option value="Arunachal Pradesh">Arunachal Pradesh</option> 
+                                               <option value="Assam">Assam</option> 
+                                               <option value="Bihar">Bihar</option>
+                                               <option value="Chandigarh">Chandigarh </option>
+                                               <option value="Chhattisgarh">Chhattisgarh</option>
+                                               <option value="Dadra and Nagar Haveli ">Dadra and Nagar Haveli </option>
+                                               <option value="Daman and Diu">Daman and Diu</option>
+                                               <option value="New Delhi">New Delhi</option>
+                                               <option value="Goa">Goa</option>
+                                               <option value="Gujarat">Gujarat</option>
+                                               <option value="Haryana">Haryana</option>
+                                               <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                               <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                               <option value="Jharkhand">Jharkhand</option>
+                                               <option value="Karnataka">Karnataka</option>
+                                               <option value="Kerala">Kerala</option>
+                                               <option value="Lakshadweep">Lakshadweep</option>
+                                               <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                               <option value="Maharashtra">Maharashtra</option>
+                                               <option value="Manipur">Manipur</option>
+                                               <option value="Meghalaya">Meghalaya</option>
+                                               <option value="Mizoram">Mizoram</option>
+                                               <option value="Nagaland">Nagaland</option>
+                                               <option value="Odisha">Odisha</option>
+                                               <option value="Puducherry">Puducherry</option>
+                                               <option value="Punjab">Punjab</option>
+                                               <option value="Rajasthan">Rajasthan</option>
+                                               <option value="Sikkim">Sikkim</option>
+                                               <option value="Tamil Nadu">Tamil Nadu</option>
+                                               <option value="Telangana">Telangana</option>
+                                               <option value="Tripura">Tripura</option>
+                                               <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                               <option value="Uttarakhand">Uttarakhand</option>
+                                               <option value="West Bengal">West Bengal</option>
+                                         
+                                               
+                         </select>
+                    </div>
+        </div>
+          <div class="col-lg-4 col-md-4 col-sm-4" >
+                  <div class="form-group">
+			<label>District</label>
+                        <select  name="district" class="form-control required" ng-model="district">
+                             <option value="">Select District</option>
+                             <option ng-repeat="dist in states" value="{{dist.district}}">
+                                                        {{dist.district}}
+                             </option>
+                        </select> 
+                    </div>
+          </div> 
+            <div class="col-lg-4 col-md-4 col-sm-4" >
+                    <div class="form-group">
+			<label>City</label>
+                        <input type="text" class="form-control required" ng-model="city">
+                    </div>
+            </div>
+        </div>
+           
+                    	
+                <button type="button" class="btn btn-success" ng-click="SubmitAgent()">Submit</button>
+    </div>
+                
+        </div>
+        </div>
+</div>
+
+<!--<modal-dialog show='loadingImage' dialog-title='Processing.......' height='200px' width='35%'>
+        <p>
+            <center> <img src="img/slot_loader.gif" height="110px" /></center>
+        </p>
+        <div class="form_button">
+        </div>
+    </modal-dialog>
+    <modal visible="showModal2">
+    <h2>
+        <div class="modal-dialog">
+        <center>
+            <b> {{status}} </b>
+        </center>
+    </div>
+    </h2>
+</modal>-->
